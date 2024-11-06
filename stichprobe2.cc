@@ -107,4 +107,24 @@ int main(){
 
   std::cout << "The mean of means is: " << _mom << std::endl;
   std::cout << "The mean of variances is: " << _mov << std::endl;
+
+  //Compare using Bessel.
+  double _mean1 = 3.11538;
+  double _var1 = 2.73455;
+
+  std::cout << "\n\nThe mean for 234 numbers is: " << _mean1 << std::endl;
+  std::cout << "The variance for 234 numbers is: " << _var1 << std::endl;
+  std::cout << "The mean for 26 means is: " << _mom << std::endl;
+  std::cout << "The mean for 26 variances is: " << _mov << std::endl;
+
+  //Define Bessels correction factor.
+  double b = 233/234;
+
+  double b_mean = _mean1 / mom;
+  double b_var = _var1 / mov;
+
+  std::cout << "The Bessel correction factor is: " << b << std::endl;
+  std::cout << "The Bessel correction factor for the mean is: " << b_mean << std::endl;
+  std::cout << "The Bessel correction factor for the variance is: " << b_var << std::endl;
+    
 }
