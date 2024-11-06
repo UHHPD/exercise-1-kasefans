@@ -50,7 +50,7 @@ int main(){
   }
 
   //Close file.
-  fin.close();
+  fvar.close();
 
   //Normalise sum_var.
   _var = _sum_var / 234;
