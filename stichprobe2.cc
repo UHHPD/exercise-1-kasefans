@@ -16,8 +16,8 @@ int main(){
   for(int i =0; i < 26; i++){
   
     //Sum all individual numbers.
-    float _sum = 0;
-    float _mean = 0;
+    double _sum = 0;
+    double _mean = 0;
   
     for(int i = 0; i < 9; i++){
     
@@ -39,10 +39,10 @@ int main(){
     fomean << _mean << std::endl;
 
     //Calculate variance.
-    float _var = 0;
+    double _var = 0;
 
     //Sum all individual numbers.
-    float _sum_var = 0;
+    double _sum_var = 0;
 
     for(int i = 0; i < 9; i++){
 
@@ -64,7 +64,7 @@ int main(){
     fovar << _var << std::endl;
 
     //Compute standard deviation.
-    float _std = sqrt(_var);
+    double _std = sqrt(_var);
 
     //Write out standard deviation.
     std::cout << "The standard deviation is: " << _std << std::endl;
@@ -77,4 +77,34 @@ int main(){
   //Close input files.
   fin.close();
   fvar.close();
+
+  //Open files.
+  std::ifstream fmeans("mittelwerte.txt");
+  std::ifstream fvars("varianzen.txt");
+  
+  double mom = 0;
+  double mov = 0;
+
+  //Sum all individual numbers.
+  double _sum_mom = 0;
+  double _sum_mov = 0;
+
+  for(int i = 0; i < 26; i++){
+    fmeans >> mom;
+    fvars >> mov;
+    
+    _sum_mom += mom;
+    _sum_mov += mov;
+  }
+
+  //Calculate the mean of means and mean of variances.
+  double _mom = _sum_mom/26;
+  double _mov = _sum_mov/26;
+
+  //Close files.
+  fmeans.close();
+  fvars.close();
+
+  std::cout << "The mean of means is: " << _mom << std::endl;
+  std::cout << "The mean of variances is: " << _mov << std::endl;
 }
